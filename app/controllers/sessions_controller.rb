@@ -25,4 +25,9 @@ class SessionsController < ApplicationController
       render :json => {success: false}
     end
   end
+
+  def destroy
+    cookies.delete(:token)
+    redirect_to users_path
+  end
 end

@@ -17,6 +17,8 @@
     <div class="link pull-right">
       <% if current_user %>
         <%= link_to "My Apps", current_user %>
+        |
+        <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Login", root_path %>
       <% end %>
