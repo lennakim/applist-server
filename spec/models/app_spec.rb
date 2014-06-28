@@ -39,10 +39,17 @@ RSpec.describe App, :type => :model do
     end
   end
 
-  describe "#info" do
-    it "should request remote data" do
+  describe "#value_of" do
+    it "should raise error if did not call info" do
+      expect{
+        app = App.create appid: 350962117
+        app.value_of 'kind'
+      }.to raise_error
+    end
+    it "should get right value" do
       app = App.create appid: 350962117
-      app.info.should_not be_empty
+      app.set_info
+      app.value_of('kind').should eq('software')
     end
   end
 end
