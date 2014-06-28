@@ -2,6 +2,7 @@ require 'grape-swagger'
 
 class API < Grape::API
   helpers ::Helper
+  helpers WeiboHelper
 
   prefix "api"
   version 'v1'

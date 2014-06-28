@@ -13,6 +13,8 @@ class User
   field :description, type: String
   field :expired_at,  type: DateTime
 
+
+  has_many :authentications
   before_create :generate_token_and_expired_at
 
   class << self
