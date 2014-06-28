@@ -62,7 +62,8 @@ class App
       name: name,
       logo: logo,
       description: description,
-      price: price
+      price: price,
+      appstore_path: appstore_path
     }
   end
 end
