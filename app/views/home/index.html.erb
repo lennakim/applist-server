@@ -1,7 +1,31 @@
 <div class="outer">
   <div class="container">
-    <p class="slogan">
-      Share the apps, Change the world!
-    </p>
+    <div class="qr-area">
+      <table class='qr-table'>
+        <% @qr.modules.each_index do |x| -%>
+          <tr>
+            <% @qr.modules.each_index do |y| -%>
+              <% if @qr.dark?(x,y) -%>
+                <td class="black"/>
+              <% else -%>
+                <td class="white"/>
+              <% end -%>
+            <% end -%>
+          </tr>
+        <% end -%>
+      </table>
+    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+var timer = setInterval(function(){
+  $.get("<%= @url %>", function(data){
+    if(data.success){
+      clearInterval(timer);
+      window.location.href = data.href;
+    }
+  });
+}, 1000);
+</script>
+

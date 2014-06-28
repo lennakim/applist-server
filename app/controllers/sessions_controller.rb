@@ -1,10 +1,4 @@
 class SessionsController < ApplicationController
-  def qrlogin
-    hash_key = SecureRandom.urlsafe_base64
-    LoginHistory.create hash_key: hash_key
-    @url = "http://#{Settings.host}/desktop_login/#{hash_key}"
-    @qr = RQRCode::QRCode.new(@url, size: 4, level: :l)
-  end
 
   def create
     hash_key = params[:hash_key]

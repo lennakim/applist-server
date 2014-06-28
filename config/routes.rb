@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   get "home/doc"
   resources :users
   resources :apps
-  resources :sessions, only: [:create] do
-    collection do
-      get 'qrlogin'
-    end
-  end
+  resources :sessions, only: [:create]
   get 'desktop_login/:hash_key' => "sessions#desktop_login", as: 'desktop_login'
 
   mount API => '/'
