@@ -1,0 +1,110 @@
+.users-page{
+  margin-top: 20px;
+  .not-current-user.well{
+    background: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    border: 0 none;
+    box-shadow: none;
+    form{
+      margin-left: 16px;
+      display: inline-block;
+      input{
+        border: 0;
+        font-size: 14px;
+        padding: 7px;
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -webkit-transition: all 0.15s ease-in-out;
+        -moz-transition: all 0.15s ease-in-out;
+        -o-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        &:focus{
+          outline: 0;
+          border-color: #da552f;
+        }
+      }
+      input[type=submit]{
+        font-weight: bold;
+        padding: 7px 14px;
+        border: 2px solid #da552f;
+        background: #da552f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 3px;
+        -webkit-transition: all 0.15s ease-in-out;
+        -moz-transition: all 0.15s ease-in-out;
+        -o-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+      }
+    }
+  }
+
+}
+.users{
+  .item{
+    padding-top: 10px;
+    height: 50px;
+    margin: 0px auto;
+
+    .avatar, .avatar img{
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+
+    .username{
+      padding-top: 3px;
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 1.3em;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      a{
+        color: #000;
+        &, &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+
+    .app-list{
+      margin-top: 7px;
+      .app-icon{
+        margin-left: 10px;
+        img{
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+.top-apps{
+  .header{
+    background: #eee;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #aaa;
+  }
+  .apps{
+    margin-left: -10px;
+    .item{
+      margin-left: 10px;
+      margin-bottom: 10px;
+      img{
+        height: 68px;
+        width: 68px;
+        border-radius: 4px;
+      }
+    }
+  }
+}

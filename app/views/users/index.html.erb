@@ -1,0 +1,178 @@
+<div class="container users-page">
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <div class="not-current-user well">
+        Get the best new product discoveries in your inbox daily!
+        <form accept-charset="UTF-8" action="/subscribers" class="new_subscriber" data-remote="true" id="new_subscriber" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+          <input id="subscriber_email" name="subscriber[email]" placeholder="Your email" type="email">
+          <input name="commit" type="submit" value="Subscribe">
+        </form>
+      </div>
+
+      <ul class="users">
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class="item clearfix">
+          <div class="avatar pull-left">
+            <%= link_to "http://weibo.com/c0ngteng" do %>
+              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
+          <% end %>
+          </div>
+          <div class="username pull-left">
+            <%= link_to "congteng", "#" %>
+          </div>
+          <div class="app-list pull-left">
+            <ul class='user-list clearfix'>
+              <% App.all.each do |app| %>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+                <li class="app-icon pull-left">
+                  <%= link_to "#" do %>
+                    <%= image_tag app.logo %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <div class="top-apps">
+        <div class="header">
+          Top Apps
+        </div>
+        <ul class="apps clearfix">
+          <% App.all.each do |app| %>
+            <li class='item pull-left'>
+              <%= image_tag app.logo %>
+            </li>
+            <li class='item pull-left'>
+              <%= image_tag app.logo %>
+            </li>
+            <li class='item pull-left'>
+              <%= image_tag app.logo %>
+            </li>
+            <li class='item pull-left'>
+              <%= image_tag app.logo %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

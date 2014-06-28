@@ -1,10 +1,31 @@
 @import "bootstrap";
 @import "compass/css3";
 @import "home";
+@import "users";
 @import 'swagger-ui';
 
 html, body{
   height: 100%;
+  .container{
+    width: 1020px;
+  }
 }
 
+*{
+  font-family: 'proxima-nova', 'Proxima Nova', sans-serif;
+}
 
+.orange{
+  color: #da552f;
+}
+
+nav{
+  padding-top: 20px;
+  a.brand{
+    font-size: 24px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
