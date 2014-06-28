@@ -1,0 +1,16 @@
+@import "bootstrap";
+@import "compass/css3";
+@import "home";
+@import 'swagger-ui';
+
+html, body{
+  height: 100%;
+  background-image: image-url('home.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+body > .container{
+  padding-bottom: 100px;
+}
+
