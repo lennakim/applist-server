@@ -33,12 +33,26 @@
     }
   }
 
+  .comment-box{
+    margin-top: 20px;
+    background: white;
+    border-radius: 4px;
+    padding: 10px;
+    textarea{
+      height: 100px;
+    }
+    input{
+      margin-top: 10px;
+    }
+  }
+
   .comments{
     margin-top: 20px;
     background: white;
     border-radius: 4px;
     padding: 10px;
     .comment{
+      margin-top: 10px;
       .avatar, .avatar img{
         width: 60px;
         height: 60px;
