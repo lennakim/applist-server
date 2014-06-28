@@ -12,12 +12,104 @@
           <div class="app-name">
             <%= resource.name %>
           </div>
+          <div class="collectors clearfix">
+            <% resource.collectors.each do |user| %>
+              <div class="collector pull-left">
+                <%= link_to user do %>
+                  <%= image_tag user.avatar %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
           <div class="desc">
             <%= truncate resource.description, length: 200 %>
           </div>
         </div>
       </div>
 
+      <div class="comments">
+        <div class="comment clearfix">
+          <div class="avatar pull-left">
+            <%= link_to User.first do %>
+              <%= image_tag User.first.avatar %>
+            <% end %>
+          </div>
+          <div class="content pull-left">
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+          </div>
+        </div>
+        <div class="comment clearfix">
+          <div class="avatar pull-left">
+            <%= link_to User.first do %>
+              <%= image_tag User.first.avatar %>
+            <% end %>
+          </div>
+          <div class="content pull-left">
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+          </div>
+        </div>
+        <div class="comment clearfix">
+          <div class="avatar pull-left">
+            <%= link_to User.first do %>
+              <%= image_tag User.first.avatar %>
+            <% end %>
+          </div>
+          <div class="content pull-left">
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+            asd asdf asdf asdf
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
       <%= render "shared/list_area", lists: @related_apps, title: "Related Hot Apps" %>

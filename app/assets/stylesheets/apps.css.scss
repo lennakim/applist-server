@@ -17,12 +17,44 @@
         font-weight: bold;
         font-size: 2em;
       }
+      .collectors{
+        .collector{
+          margin-left: 5px;
+          img{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+          }
+        }
+      }
       .desc{
         margin-top: 10px;
       }
     }
   }
+
+  .comments{
+    margin-top: 20px;
+    background: white;
+    border-radius: 4px;
+    padding: 10px;
+    .comment{
+      .avatar, .avatar img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      .content{
+        width: 640px;
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        border-left: 1px solid #eee;
+      }
+    }
+  }
 }
+
 
 @media (max-width: 500px){
   .main.app-show{
