@@ -9,7 +9,6 @@
       <ul class="apps">
         <% resource.top_10_apps.each do |app| %>
           <li class="app clearfix">
-
             <div class="logo pull-left">
               <%= link_to app do %>
                 <%= image_tag app.logo %>
@@ -18,10 +17,12 @@
 
             <div class="app-name pull-left">
               <%= link_to app do %>
-                <%= truncate app.name, length: 30 %>
+                <%= truncate app.name, length: 10 %>
               <% end %>
             </div>
-
+            <div class="app-desc pull-left">
+              <%= truncate app.description, length: 40 %>
+            </div>
           </li>
         <% end %>
       </ul>
