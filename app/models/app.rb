@@ -86,7 +86,7 @@ class App
       name: name.to_s,
       logo: logo.to_s,
       description: description.to_s,
-      price: price,
+      price: price.to_i,
       appstore_path: appstore_path.to_s,
       screenshotUrls: screenshotUrls.nil? ? [] : screenshotUrls,
       trackName: trackName.to_s,
