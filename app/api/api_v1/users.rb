@@ -1,5 +1,6 @@
 class Users < Grape::API
   helpers SharedParams
+  helpers WeiboHelper
 
   resources :users do
     desc "get user info"
@@ -24,9 +25,20 @@ class Users < Grape::API
     desc "user's friends"
     params do
       use :auth
+      requires :user_id
     end
     get ':user_id/friends' do
+      authenticate!
 
+      user = User.find(params[:user_id])
+      if user
+       weibo_account = user.weibo_account
+       result = weibo_friends(weibo_account.uid, weibo_account.token)
+
+       wrapper(result)
+      else
+        wrapper(false)
+      end
     end
 
     ######

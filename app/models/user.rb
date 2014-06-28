@@ -53,10 +53,10 @@ class User
     def login(id, token)
       User.where(id: id, token: token).first
     end
+  end
 
-    def weibo_account
-      authentications.where(provider: 'weibo').first
-    end
+  def weibo_account
+    authentications.where(provider: 'weibo').first
   end
 
   def add_auth(auth_hash)
@@ -80,6 +80,7 @@ class User
   def as_json(opt={})
     {
       id: id.to_s,
+      token: token,
       name: name,
       gender: gender,
       location: location,
