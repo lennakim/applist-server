@@ -59,6 +59,7 @@ class App
   def as_json(opt={})
     {
       id: id.to_s,
+      appid: appid,
       name: name,
       logo: logo,
       description: description,
