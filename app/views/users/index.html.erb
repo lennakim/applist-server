@@ -17,7 +17,7 @@
               <ul class='user-list clearfix'>
                 <% user.top_10_apps.each do |app| %>
                   <li class="app-icon pull-left">
-                    <%= link_to app, target: "_blank" do %>
+                    <%= link_to app do %>
                       <%= image_tag app.logo %>
                     <% end %>
                   </li>

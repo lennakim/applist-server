@@ -11,13 +11,13 @@
           <li class="app clearfix">
 
             <div class="logo pull-left">
-              <%= link_to app, target: "_blank" do %>
+              <%= link_to app do %>
                 <%= image_tag app.logo %>
               <% end %>
             </div>
 
             <div class="app-name pull-left">
-              <%= link_to app, target: "_blank" do %>
+              <%= link_to app do %>
                 <%= truncate app.name, length: 30 %>
               <% end %>
             </div>

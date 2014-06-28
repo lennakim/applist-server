@@ -1,9 +1,26 @@
 <div class="container main">
   <div class="row">
     <div class="col-md-9">
+      <div class="app-detail clearfix">
+        <div class="logo pull-left">
+          <%= link_to resource.appstore_path do %>
+            <%= image_tag resource.logo %>
+          <% end %>
+        </div>
+
+        <div class="detail-info pull-left">
+          <div class="app-name">
+            <%= resource.name %>
+          </div>
+          <div class="desc">
+            <%= truncate resource.description, length: 200 %>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="col-md-3">
-      <%= render "shared/list_area", lists: @related_apps, title: "Related Apps" %>
+      <%= render "shared/list_area", lists: @related_apps, title: "Related Hot Apps" %>
     </div>
   </div>
 </div>

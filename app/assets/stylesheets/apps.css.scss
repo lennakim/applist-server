@@ -1,3 +1,25 @@
-// Place all the styles related to the apps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main{
+  .app-detail{
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 4px;
+    .logo, .logo img{
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+    }
+
+    .detail-info{
+      margin-left: 30px;
+      width: 60%;
+      .app-name{
+        padding-top: 3px;
+        font-weight: bold;
+        font-size: 2em;
+      }
+      .desc{
+        margin-top: 10px;
+      }
+    }
+  }
+}
