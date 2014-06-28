@@ -65,7 +65,7 @@ class Users < Grape::API
 
     ######
 
-    desc "upload apps info"
+    desc "upload top apps "
     params do
       use :auth
       requires :app_ids
@@ -77,8 +77,7 @@ class Users < Grape::API
       top_apps = []
 
       app_ids.each do |app_id|
-        app = App.create(appid: app_id)
-        top_apps << app
+        top_apps << App.create(appid: app_id)
       end
 
       current_user.save_top_list(top_apps)
@@ -104,6 +103,27 @@ class Users < Grape::API
       else
         wrapper(false)
       end
+    end
+
+    ####
+    desc "upload user apps"
+    params do
+      use :auth
+      requires :user_id
+    end
+    post "apps" do
+      authenticate!
+
+      app_ids = params[:app_ids].split(',')
+      apps = []
+
+      app_ids.each do |app_id|
+        apps << App.create(appid: app_id)
+      end
+
+      current_user.save_apps(apps)
+      status(200)
+      wrapper(true)
     end
   end
 end
