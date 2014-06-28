@@ -14,14 +14,24 @@ class User
   field :expired_at,  type: DateTime
 
   # LBS
-  field :coordinate, type: Array
+  field :coordinate, type: Array, default: []
   index({coordinate: "2dsphere"})
   def update_location x, y
     self.update coordinate: [x, y]
   end
 
-  def nearby_apps
+  def nearby_apps limit = nil, offset = nil
+    # max = (max.to_f if max) || (1.0 / 6371).to_f
 
+    limit ||= 10
+    offset ||=  0
+
+    if coordinate.length == 2
+      users = User.near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
+      users.top_10_apps
+    else
+      App.top_listed(limit).offset(offset)
+    end
   end
 
   has_many :authentications
