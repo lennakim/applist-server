@@ -43,16 +43,12 @@ class User
   default_scope -> { desc('updated_at') }
 
   def save_apps apps
-    Rails.logger.info '-' * 30
-    Rails.logger.info apps
     self.apps = []
     self.apps = apps
     self
   end
 
   def save_top_list list
-    Rails.logger.info '-' * 30
-    Rails.logger.info list
     self.top_10_apps = []
     self.top_10_apps = list
     self
