@@ -19,9 +19,9 @@ class App
 
   before_save :check_and_save_counts
 
-  scope :top_listed, -> { desc(:collectors_count) }
-  scope :top_installed, -> { desc(:users_count) }
-  scope :recent, -> {order_by(created_at: :desc)}
+  scope :top_listed, -> (n){ desc(:collectors_count).limit(n) }
+  scope :top_installed, -> (n){ desc(:users_count).limit(n) }
+  scope :recent, -> { order_by(created_at: :desc) }
 
   def fetch_info
     result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{appid}" rescue nil

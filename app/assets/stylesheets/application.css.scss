@@ -6,8 +6,14 @@
 
 html, body{
   height: 100%;
-  .container{
-    width: 1020px;
+}
+
+@media (min-width: 1000px) {
+  html, body{
+    height: 100%;
+    .container{
+      width: 1020px;
+    }
   }
 }
 

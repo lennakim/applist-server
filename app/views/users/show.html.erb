@@ -1,2 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container main">
+  <div class="row">
+    <div class="col-md-9">
+      <%= render "shared/mail_submit" %>
+
+      <ul class="apps">
+        <% resource.top_10_apps.each do |app| %>
+          <li class="app clearfix">
+
+            <div class="logo pull-left">
+              <%= image_tag app.logo %>
+            </div>
+
+            <div class="app-name pull-left">
+              <%= app.name %>
+            </div>
+
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <%= render "shared/top_list" %>
+    </div>
+  </div>
+</div>
