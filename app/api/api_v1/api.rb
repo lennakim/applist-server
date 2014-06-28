@@ -2,9 +2,6 @@ require 'grape-swagger'
 
 class API < Grape::API
 
-  helpers ::Helpers
-  helpers WeiboHelpers
-
   prefix "api"
   version 'v1'
   content_type :json, "application/json;charset=UTF-8"
@@ -15,5 +12,7 @@ class API < Grape::API
     header['Access-Control-Request-Method'] = '*'
   end
 
-  add_swagger_documentation mount_path: 'doc.json', markdown: true, api_version: 'v1'
+  mount Login
+
+  add_swagger_documentation mount_path: 'doc.json', api_version: 'v1'
 end
