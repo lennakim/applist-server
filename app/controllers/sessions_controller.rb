@@ -9,14 +9,16 @@ class SessionsController < ApplicationController
     if user
       cookies[:token] = { value: user.token, expires: 30.days.from_now }
       LoginHistory.confirm hash_key, token
+      render :json => { success: true }
+    else
+      render :json => { success: false }
     end
-    redirect_to users_path
   end
 
   def desktop_login
     hash_key = params[:hash_key]
     if token = LoginHistory.confirmed?(params[:hash_key])
-      cookies[:token] = { value: User.where(token: token), expires: 30.days.from_now }
+      cookies[:token] = { value: User.where(token: token).first, expires: 30.days.from_now }
       render :json => {success: true, path: user_path(current_user)}
     else
       render :json => {success: false}
