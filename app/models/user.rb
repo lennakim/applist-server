@@ -13,9 +13,19 @@ class User
   field :description, type: String
   field :expired_at,  type: DateTime
 
-
   has_many :authentications
+  has_and_belongs_to_many :apps, inverse_of: :users
+  has_and_belongs_to_many :top_10_apps, class_name: 'App', inverse_of: :collectors
+
   before_create :generate_token_and_expired_at
+
+  def save_apps apps
+    self.apps = apps
+  end
+
+  def save_top_list list
+    self.top_10_apps = list
+  end
 
   class << self
 
