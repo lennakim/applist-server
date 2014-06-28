@@ -47,7 +47,7 @@
 .users{
   .item{
     padding-top: 10px;
-    height: 50px;
+    min-height: 50px;
     margin: 0px auto;
 
     .avatar, .avatar img{
@@ -112,7 +112,7 @@
 .apps{
   .app{
     padding-top: 10px;
-    height: 70px;
+    min-height: 70px;
     margin: 0px auto;
 
     .logo, .logo img{
@@ -135,14 +135,43 @@
     }
   }
 }
-@media (min-width: 500px) {
+@media (max-width: 1000px) {
   .main{
     .not-current-user.well{
       form{
         margin-top: 10px;
         margin-left: 0;
       }
-
+    }
+  }
+}
+@media (max-width: 500px){
+  .main{
+    .not-current-user.well{
+      form{
+        input[type=submit]{
+          margin-top: 10px;
+        }
+      }
+    }
+    .users{
+      .app-list > ul{
+        margin-left: -5px;
+         li.app-icon{
+           margin-left: 5px;
+         }
+      }
+    }
+    .apps > .app{
+      .app-name{
+        width: 210px;
+      }
+    }
+    .top-apps{
+      .apps .item, .apps .item > img{
+        width: 65px;
+        height: 65px;
+      }
     }
   }
 }

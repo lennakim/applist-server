@@ -12,6 +12,8 @@ class App
   field :users_count, type: Integer, default: 0
   field :collectors_count, type: Integer, default: 0
 
+  validates :appid, uniqueness: true
+
   before_create :fetch_info
 
   has_and_belongs_to_many :users, inverse_of: :apps

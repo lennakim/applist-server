@@ -13,6 +13,13 @@ class User
   field :description, type: String
   field :expired_at,  type: DateTime
 
+  # LBS
+  field :coordinate, type: Array
+  index({coordinate: "2dsphere"})
+  def update_location x, y
+    self.update coordinate: [x, y]
+  end
+
   has_many :authentications
   has_and_belongs_to_many :apps, inverse_of: :users
   has_and_belongs_to_many :top_10_apps, class_name: 'App', inverse_of: :collectors
