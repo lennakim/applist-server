@@ -1,8 +1,9 @@
 .main{
   .not-current-user.well{
+    width: 100%;
     background: #f2f2f2;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 42px;
     display: inline-block;
     border: 0 none;
     box-shadow: none;
@@ -131,6 +132,17 @@
           text-decoration: none;
         }
       }
+    }
+  }
+}
+@media (min-width: 500px) {
+  .main{
+    .not-current-user.well{
+      form{
+        margin-top: 10px;
+        margin-left: 0;
+      }
+
     }
   }
 }
