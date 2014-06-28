@@ -1,0 +1,28 @@
+<div class="container main">
+  <div class="qr-area">
+    <table class='qr-table'>
+      <% @qr.modules.each_index do |x| -%>
+        <tr>
+          <% @qr.modules.each_index do |y| -%>
+            <% if @qr.dark?(x,y) -%>
+              <td class="black"/>
+            <% else -%>
+              <td class="white"/>
+            <% end -%>
+          <% end -%>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  <%= @url %>
+</div>
+<script type="text/javascript">
+var timer = setInterval(function(){
+  $.get("<%= @url %>", function(data){
+    if(data.success){
+      clearInterval(timer);
+      window.location.href = data.href;
+    }
+  });
+}, 1000);
+</script>
