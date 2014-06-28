@@ -20,11 +20,8 @@ class User
     self.update coordinate: [x, y]
   end
 
-  def nearby_apps limit = nil, offset = nil
+  def nearby_apps limit = 10, offset = 0
     # max = (max.to_f if max) || (1.0 / 6371).to_f
-
-    limit ||= 10
-    offset ||=  0
 
     if coordinate.length == 2
       users = User.near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)

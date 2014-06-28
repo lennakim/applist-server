@@ -150,5 +150,18 @@ class Users < Grape::API
 
       wrapper(true)
     end
+
+    #####
+    desc "user's nearby_apps"
+    params do
+      use :auth
+      optional :limit,  type: Integer, default: 10
+      optional :offset, type: Integer, default: 0
+    end
+    get "nearby_apps" do
+      authenticate!
+      apps = current_user.nearby_apps(params[:limit], params[:offset])
+      wrapper(apps)
+    end
   end
 end
