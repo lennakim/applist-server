@@ -31,11 +31,34 @@ class Users < Grape::API
       authenticate!
 
       user = User.find(params[:user_id])
-      if user
-       weibo_account = user.weibo_account
-       result = weibo_friends(weibo_account.uid, weibo_account.token)
 
-       wrapper(result)
+      if user
+        weibo_account = user.weibo_account
+
+        friends = if weibo_account.friends
+          weibo_account.friends
+        else
+          result = weibo_friends(weibo_account.uid, weibo_account.token)
+          weibo_account.friends = result['users'].map{|u| u['id']}
+          weibo_account.save
+          weibo_account.friends
+        end
+
+        a = Authentication.where(:uid.in => friends)
+
+        if a
+          users = a.map(&:user)
+          hash = {}
+
+          users.each do |user|
+            hash[:friends] = user
+            hash[:friends][:top_apps] = user.top_10_apps
+          end
+
+          wrapper(hash)
+        else
+          wrapper(false)
+        end
       else
         wrapper(false)
       end

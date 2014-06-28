@@ -2,10 +2,11 @@ class Authentication
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :uid,         type: Integer
-  field :token,       type: String
-  field :provider,    type: String
-  field :raw_info,    type: String
+  field :uid,      type: Integer
+  field :token,    type: String
+  field :provider, type: String
+  field :raw_info, type: String
+  field :friends,  type: Array
 
   belongs_to :user
 
