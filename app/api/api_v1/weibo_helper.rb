@@ -11,8 +11,9 @@ module WeiboHelper
 
   def weibo_friends(uid, token)
     # http://open.weibo.com/wiki/2/friendships/friends
+    # http://open.weibo.com/wiki/2/friendships/friends/ids
+    uri = URI("https://api.weibo.com/2/friendships/friends/ids.json??uid=#{uid}&access_token=#{token}&count=5000")
 
-    uri = URI("https://api.weibo.com/2/friendships/friends.json?uid=#{uid}&access_token=#{token}")
     Rails.logger.info uri
     ActiveSupport::JSON.decode(Net::HTTP.get(uri))
   end

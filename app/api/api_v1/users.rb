@@ -36,23 +36,9 @@ class Users < Grape::API
       if user
         weibo_account = user.weibo_account
 
-        # friends = if weibo_account.friends && weibo_account.friends.size > 0
-          # weibo_account.friends
-        # else
-          result = weibo_friends(weibo_account.uid, weibo_account.token)
-          # weibo_account.friends = result['users'].map{|u| u['id']}
-          # weibo_account.save
-          # weibo_account.friends
-        # end
+        result = weibo_friends(weibo_account.uid, weibo_account.token)
 
-        friends = result['users'].map{|u| u['id']}
-        puts "*"*30
-        puts friends
-
-        Rails.logger.debug "-"*30
-        puts Authentication.all.map(&:uid)
-
-        puts friends.include?(Authentication.all.map(&:uid))
+        friends = result['ids']
 
         a = Authentication.where(:uid.in => friends)
 
