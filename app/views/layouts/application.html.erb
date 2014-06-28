@@ -12,6 +12,10 @@
 <nav>
   <div class="container">
     <%= link_to "App List", users_path, "target" => :blank, class: 'brand orange' %>
+
+    <% if content_for :username %>
+      of <%= content_for :username %>
+    <% end %>
   </div>
 </nav>
 

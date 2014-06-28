@@ -17,7 +17,7 @@
               <ul class='user-list clearfix'>
                 <% user.top_10_apps.each do |app| %>
                   <li class="app-icon pull-left">
-                    <%= link_to app.appstore_path, target: "_blank" do %>
+                    <%= link_to app, target: "_blank" do %>
                       <%= image_tag app.logo %>
                     <% end %>
                   </li>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="col-md-3">
-      <%= render "shared/top_list" %>
+      <%= render "shared/list_area", lists: App.top_listed(12), title: "Top 12" %>
     </div>
   </div>
 </div>
