@@ -49,10 +49,7 @@ class Users < Grape::API
         if a
           users = a.map(&:user)
           hash = {}
-
-          users.each do |user|
-            hash[:friends] = user
-          end
+          hash[:friends] = users
 
           wrapper(hash)
         else
