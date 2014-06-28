@@ -23,7 +23,7 @@ class Login < Grape::API
           wrapper(user)
         end
       else
-
+        wrapper(false)
       end
     else
       result = get_user_info(user_id, token)
