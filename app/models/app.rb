@@ -32,7 +32,7 @@ class App
   end
 
   def related_apps
-    App.in(categories: self.categories)
+    App.in(categories: self.categories).ne(appid: self.appid)
   end
 
   def fetch_info
