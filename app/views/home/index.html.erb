@@ -20,10 +20,10 @@
 
 <script type="text/javascript">
 var timer = setInterval(function(){
-  $.get("<%= @url %>", function(data){
+  $.get("<%= @check_url %>", function(data){
     if(data.success){
       clearInterval(timer);
-      window.location.href = data.href;
+      Turbolinks.visit(data.path);
     }
   });
 }, 1000);
