@@ -45,7 +45,7 @@ class App
   end
 
   def appstore_path
-    info_hash["trackViewUrl"]
+    info_hash["trackViewUrl"] if info_hash
   end
 
   def related_apps
@@ -58,17 +58,19 @@ class App
     if result
       hash = JSON.parse(result)["results"].first
 
-      self.name = hash["trackName"].to_s
-      self.logo = hash["artworkUrl100"].to_s
-      self.description = hash["description"].to_s
-      self.price = hash["price"].to_s
-      self.categories = hash["genreIds"]
-      self.screenshotUrls = hash["screenshotUrls"]
-      self.trackName = hash["trackName"].to_s
-      self.genres = hash["genres"].to_s
-      self.fileSizeBytes = hash["fileSizeBytes"].to_s
-      self.userRatingCount = hash["userRatingCount"].to_s
-      self.info_hash = hash
+      if hash && hash.has_key?('trackName')
+        self.name = hash["trackName"]
+        self.logo = hash["artworkUrl100"]
+        self.description = hash["description"]
+        self.price = hash["price"]
+        self.categories = hash["genreIds"]
+        self.screenshotUrls = hash["screenshotUrls"]
+        self.trackName = hash["trackName"]
+        self.genres = hash["genres"]
+        self.fileSizeBytes = hash["fileSizeBytes"]
+        self.userRatingCount = hash["userRatingCount"]
+        self.info_hash = hash
+      end
     end
   end
 
@@ -79,14 +81,14 @@ class App
 
   def as_json(opt={})
     {
-      id: id.to_s.to_s,
+      id: id.to_s,
       appid: appid.to_s,
       name: name.to_s,
       logo: logo.to_s,
       description: description.to_s,
-      price: price.to_s,
+      price: price,
       appstore_path: appstore_path.to_s,
-      screenshotUrls: screenshotUrls.to_s,
+      screenshotUrls: screenshotUrls.nil? ? [] : screenshotUrls,
       trackName: trackName.to_s,
       genres: genres.to_s,
       fileSizeBytes: fileSizeBytes.to_s,
