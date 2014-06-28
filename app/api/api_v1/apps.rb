@@ -16,5 +16,14 @@ class Apps < Grape::API
       apps = App.top_listed.limit(params[:limit])
       wrapper(apps)
     end
+
+    desc "lookup_app api"
+    params do
+      requires :app_ids
+    end
+    get "lookup_app" do
+      app = App.lookup_app(params[:app_ids])
+      wrapper(app)
+    end
   end
 end

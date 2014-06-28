@@ -27,6 +27,19 @@ class App
   scope :top_installed, -> { desc(:users_count) }
   scope :recent, -> { order_by(created_at: :desc) }
 
+
+  def self.lookup_app(app_ids)
+    arr = app_ids.split(',')
+
+    apps = []
+    arr.each do |app_id|
+      app = App.find_or_create_by(appid: app_id)
+      apps << app
+    end
+
+    apps
+  end
+
   def appstore_path
     info_hash["trackViewUrl"]
   end
@@ -54,7 +67,6 @@ class App
     self.users_count = users.length
     self.collectors_count = collectors.length
   end
-
 
   def as_json(opt={})
     {
