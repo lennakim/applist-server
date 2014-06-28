@@ -71,7 +71,7 @@ test:
 production:
   sessions:
     default:
-      database: applist_production
+      database: applist_pro
       hosts:
         - localhost:27017
       options:
