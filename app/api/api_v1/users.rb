@@ -106,7 +106,7 @@ class Users < Grape::API
     desc "upload user apps"
     params do
       use :auth
-      requires :user_id
+      requires :app_ids
     end
     post "apps" do
       authenticate!
@@ -121,6 +121,24 @@ class Users < Grape::API
       current_user.save_apps(apps)
       status(200)
       wrapper(true)
+    end
+
+    desc "user's top apps"
+    params do
+      use :auth
+      requires :user_id
+    end
+    get ':user_id/top_apps' do
+      authenticate!
+
+      user = User.find(params[:user_id])
+
+      if user
+        data = user.top_10_apps
+        wrapper(data)
+      else
+        wrapper(false)
+      end
     end
   end
 end
