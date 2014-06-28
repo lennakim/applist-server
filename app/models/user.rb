@@ -19,6 +19,8 @@ class User
 
   before_create :generate_token_and_expired_at
 
+  default_scope -> { desc('updated_at') }
+
   def save_apps apps
     self.apps = apps
     self

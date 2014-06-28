@@ -1,15 +1,8 @@
-<div class="container users-page">
-
+<div class="container main">
   <div class="row">
     <div class="col-md-9">
 
-      <div class="not-current-user well">
-        Get the best new product discoveries in your inbox daily!
-        <form accept-charset="UTF-8" action="/subscribers" class="new_subscriber" data-remote="true" id="new_subscriber" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
-          <input id="subscriber_email" name="subscriber[email]" placeholder="Your email" type="email">
-          <input name="commit" type="submit" value="Subscribe">
-        </form>
-      </div>
+      <%= render "shared/mail_submit" %>
 
       <ul class="users">
         <% @users.each do |user| %>
@@ -26,7 +19,7 @@
               <ul class='user-list clearfix'>
                 <% user.top_10_apps.each do |app| %>
                   <li class="app-icon pull-left">
-                    <%= link_to "#" do %>
+                    <%= link_to app.appstore_path, target: "_blank" do %>
                       <%= image_tag app.logo %>
                     <% end %>
                   </li>
@@ -39,18 +32,7 @@
     </div>
 
     <div class="col-md-3">
-      <div class="top-apps">
-        <div class="header">
-          Top Apps
-        </div>
-        <ul class="apps clearfix">
-          <% @top_apps.each do |app| %>
-            <li class='item pull-left'>
-              <%= image_tag app.logo %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render "shared/top_list" %>
     </div>
   </div>
 </div>

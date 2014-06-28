@@ -6,8 +6,14 @@
 
 html, body{
   height: 100%;
-  .container{
-    width: 1020px;
+}
+
+@media (min-width: 1000px) {
+  html, body{
+    height: 100%;
+    .container{
+      width: 1020px;
+    }
   }
 }
 
@@ -20,7 +26,7 @@ html, body{
 }
 
 nav{
-  padding-top: 20px;
+  padding: 20px 0;
   a.brand{
     font-size: 24px;
     padding-top: 1px;
