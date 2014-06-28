@@ -13,6 +13,11 @@ class App
   field :collectors_count, type: Integer, default: 0
 
   field :categories,  type: Array
+  field :screenshotUrls, type: Array
+  field :trackName, type: String
+  field :genres, type: String
+  field :fileSizeBytes, type: String
+  field :userRatingCount, type: String
 
   validates :appid, uniqueness: true
 
@@ -26,7 +31,6 @@ class App
   scope :top_listed, -> { desc(:collectors_count) }
   scope :top_installed, -> { desc(:users_count) }
   scope :recent, -> { order_by(created_at: :desc) }
-
 
   def self.lookup_app(app_ids)
     arr = app_ids.split(',')
@@ -59,6 +63,11 @@ class App
       self.description = hash["description"]
       self.price = hash["price"]
       self.categories = hash["genreIds"]
+      self.screenshotUrls = hash["screenshotUrls"]
+      self.trackName = hash["trackName"]
+      self.genres = hash["genres"]
+      self.fileSizeBytes = hash["fileSizeBytes"]
+      self.userRatingCount = hash["userRatingCount"]
       self.info_hash = hash
     end
   end
@@ -76,7 +85,12 @@ class App
       logo: logo,
       description: description,
       price: price,
-      appstore_path: appstore_path
+      appstore_path: appstore_path,
+      screenshotUrls: screenshotUrls,
+      trackName: trackName,
+      genres: genres,
+      fileSizeBytes: fileSizeBytes,
+      userRatingCount: userRatingCount
     }
   end
 end
