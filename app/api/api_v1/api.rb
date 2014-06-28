@@ -3,6 +3,7 @@ require 'grape-swagger'
 class API < Grape::API
   helpers ::Helper
   helpers WeiboHelper
+  helpers SharedParams
 
   prefix "api"
   version 'v1'
@@ -16,6 +17,7 @@ class API < Grape::API
 
   mount Login
   mount Users
+  mount Apps
 
   add_swagger_documentation mount_path: 'doc.json', api_version: 'v1'
 end

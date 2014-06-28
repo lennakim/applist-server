@@ -3,11 +3,10 @@ class App
   include Mongoid::Timestamps
 
   field :appid,       type: Integer
-  field :name,   type: String
+  field :name,        type: String
   field :logo,        type: String
   field :description, type: String
   field :price,       type: Integer
-
   field :info_hash,   type: Hash
 
   field :users_count, type: Integer, default: 0
@@ -22,6 +21,7 @@ class App
 
   scope :top_listed, -> { desc(:collectors_count) }
   scope :top_installed, -> { desc(:users_count) }
+  scope :recent, -> {order_by(created_at: :desc)}
 
   def fetch_info
     result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{appid}" rescue nil
