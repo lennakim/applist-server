@@ -13,6 +13,7 @@ gem 'compass-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'rest-client'
 
 gem 'mongoid'
 gem 'bson_ext'

@@ -6,9 +6,9 @@ RSpec.describe App, :type => :model do
     @b = create(:user)
     @c = create(:user)
 
-    @x = App.create appid: 1, name: 'test1'
-    @y = App.create appid: 2, name: 'test2'
-    @z = App.create appid: 3, name: 'test3'
+    @x = App.create appid: 1
+    @y = App.create appid: 2
+    @z = App.create appid: 3
   end
   describe "#save_top_list" do
 
@@ -36,6 +36,13 @@ RSpec.describe App, :type => :model do
       }.to change{ @a.reload.apps.size }.to(2)
 
       @a.apps.should_not be_include(@z)
+    end
+  end
+
+  describe "#info" do
+    it "should request remote data" do
+      app = App.create appid: 350962117
+      app.info.should_not be_empty
     end
   end
 end

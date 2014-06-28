@@ -180,6 +180,8 @@ GEM
     rake (10.3.2)
     responders (1.1.0)
       railties (>= 3.2, < 5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -267,6 +269,7 @@ DEPENDENCIES
   quiet_assets
   rack-cors
   rails (= 4.1.1)
+  rest-client
   rspec-rails
   sass-rails (~> 4.0.3)
   settingslogic
