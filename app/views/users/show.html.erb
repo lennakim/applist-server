@@ -1,3 +1,6 @@
+<%= content_for :username do %>
+  <%= resource.name %>
+<% end %>
 <div class="container main">
   <div class="row">
     <div class="col-md-9">
@@ -15,7 +18,7 @@
 
             <div class="app-name pull-left">
               <%= link_to app.appstore_path, target: "_blank" do %>
-                <%= app.name %>
+                <%= truncate app.name, length: 30 %>
               <% end %>
             </div>
 
