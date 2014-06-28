@@ -30,6 +30,14 @@ module Helper
   def permit!(klass, user)
     raise PermissionDeniedError if klass.try(:user) != user
   end
+
+   def login_failed
+    wrapper('login failed', 10002, false)
+  end
+
+  def token_expired
+    wrapper('token expired', 10004, false)
+  end
 end
 
 class Error < Grape::Exceptions::Base
