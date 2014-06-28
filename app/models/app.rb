@@ -42,4 +42,14 @@ class App
     self.collectors_count = collectors.length
   end
 
+
+  def as_json(opt={})
+    {
+      id: id.to_s,
+      name: name,
+      logo: logo,
+      description: description,
+      price: price
+    }
+  end
 end
