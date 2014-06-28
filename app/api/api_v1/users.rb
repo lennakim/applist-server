@@ -46,6 +46,13 @@ class Users < Grape::API
         # end
 
         friends = result['users'].map{|u| u['id']}
+        puts "*"*30
+        puts friends
+
+        Rails.logger.debug "-"*30
+        puts Authentication.all.map(&:uid)
+
+        puts friends.include?(Authentication.all.map(&:uid))
 
         a = Authentication.where(:uid.in => friends)
 
