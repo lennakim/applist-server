@@ -6,12 +6,12 @@ RSpec.describe App, :type => :model do
     @b = create(:user)
     @c = create(:user)
 
-    @x = App.create appid: 1
-    @y = App.create appid: 2
-    @z = App.create appid: 3
+    @x = App.create appid: 350962117
+    @y = App.create appid: 350962117
+    @z = App.create appid: 350962117
   end
-  describe "#save_top_list" do
 
+  describe "#save_top_list" do
     it "should add apps to user list" do
       expect{
         @b.save_top_list [@x, @y, @z]
@@ -39,17 +39,10 @@ RSpec.describe App, :type => :model do
     end
   end
 
-  describe "#value_of" do
+  describe "#create" do
     it "should raise error if did not call info" do
-      expect{
-        app = App.create appid: 350962117
-        app.value_of 'kind'
-      }.to raise_error
-    end
-    it "should get right value" do
       app = App.create appid: 350962117
-      app.set_info
-      app.value_of('kind').should eq('software')
+      app.name.should eq('微博')
     end
   end
 end
