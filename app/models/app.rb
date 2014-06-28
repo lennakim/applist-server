@@ -3,12 +3,13 @@ class App
   include Mongoid::Timestamps
 
   field :appid,       type: Integer
-  field :name,   type: String
+  field :name,        type: String
   field :logo,        type: String
   field :description, type: String
   field :price,       type: Integer
-
   field :info_hash,   type: Hash
+
+  scope :recent, -> {order_by(created_at: :desc)}
 
   before_create :fetch_info
 

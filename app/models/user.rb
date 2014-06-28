@@ -27,8 +27,6 @@ class User
     self.top_10_apps = list
   end
 
-  before_create :generate_token_and_expired_at
-
   class << self
 
     def from_auth(auth_hash)
