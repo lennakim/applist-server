@@ -30,7 +30,7 @@ class User
       users = User.near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
       users.top_10_apps
     else
-      App.top_listed(limit).offset(offset)
+      App.top_listed.limit(limit).offset(offset)
     end
   end
 

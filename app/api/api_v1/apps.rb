@@ -13,7 +13,7 @@ class Apps < Grape::API
       optional :limit, type: Integer, default: 1, desc: 'Limit Default value is 100'
     end
     get "top_list" do
-      apps = App.top_listed(limit=100)
+      apps = App.top_listed.limit(params[:limit])
       wrapper(apps)
     end
   end
