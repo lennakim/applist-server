@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, :only => [:create]
   def create
     hash_key = params[:hash_key]
     token = params[:token]
