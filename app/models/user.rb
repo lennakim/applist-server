@@ -90,6 +90,8 @@ class User
       location: location,
       nickname: nickname,
       avatar: avatar,
+      apps: apps,
+      top_apps: self.top_10_apps
     }
   end
 

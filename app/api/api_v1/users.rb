@@ -52,7 +52,6 @@ class Users < Grape::API
 
           users.each do |user|
             hash[:friends] = user
-            hash[:friends][:top_apps] = user.top_10_apps
           end
 
           wrapper(hash)
@@ -82,7 +81,7 @@ class Users < Grape::API
         top_apps << app
       end
 
-      current_user.top_10_apps(top_apps)
+      current_user.save_top_list(top_apps)
 
       status(200)
 
