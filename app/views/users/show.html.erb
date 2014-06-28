@@ -11,13 +11,13 @@
           <li class="app clearfix">
 
             <div class="logo pull-left">
-              <%= link_to app.appstore_path, target: "_blank" do %>
+              <%= link_to app, target: "_blank" do %>
                 <%= image_tag app.logo %>
               <% end %>
             </div>
 
             <div class="app-name pull-left">
-              <%= link_to app.appstore_path, target: "_blank" do %>
+              <%= link_to app, target: "_blank" do %>
                 <%= truncate app.name, length: 30 %>
               <% end %>
             </div>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-md-3">
-      <%= render "shared/top_list" %>
+      <%= render "shared/list_area", lists: App.top_listed(12), title: "Top 12" %>
     </div>
   </div>
 </div>

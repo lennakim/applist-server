@@ -1,12 +1,12 @@
 <div class="top-apps">
   <div class="header">
-    Top 12
+    <%= title %>
   </div>
   <ul class="apps clearfix">
-    <% App.top_listed(12).each do |app| %>
+    <% lists.each do |app| %>
       <li class='item pull-left'>
-    <%= image_tag app.logo %>
-    </li>
-  <% end %>
+        <%= image_tag app.logo %>
+      </li>
+    <% end %>
   </ul>
 </div>

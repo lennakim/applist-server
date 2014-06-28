@@ -12,6 +12,8 @@ class App
   field :users_count, type: Integer, default: 0
   field :collectors_count, type: Integer, default: 0
 
+  field :categories,  type: Array
+
   validates :appid, uniqueness: true
 
   before_create :fetch_info
@@ -29,6 +31,10 @@ class App
     info_hash["trackViewUrl"]
   end
 
+  def related_apps
+    App.in(categories: self.categories)
+  end
+
   def fetch_info
     result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{appid}" rescue nil
 
@@ -39,6 +45,7 @@ class App
       self.logo = hash["artworkUrl100"]
       self.description = hash["description"]
       self.price = hash["price"]
+      self.categories = hash["genreIds"]
       self.info_hash = hash
     end
   end
