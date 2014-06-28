@@ -19,10 +19,10 @@ class Apps < Grape::API
 
     desc "lookup_app api"
     params do
-      requires :app_id
+      requires :app_ids
     end
     get "lookup_app" do
-      app = App.lookup_app(params[:app_id])
+      app = App.lookup_app(params[:app_ids])
       wrapper(app)
     end
   end

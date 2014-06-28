@@ -28,22 +28,16 @@ class App
   scope :recent, -> { order_by(created_at: :desc) }
 
 
-  def self.lookup_app(app_id)
-    result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{app_id}" rescue nil
+  def self.lookup_app(app_ids)
+    arr = app_ids.split(',')
 
-    if result
-      hash = JSON.parse(result)["results"].first
-
-      hash = {
-        appid: app_id,
-        name: hash["trackName"],
-        logo: hash["artworkUrl100"],
-        description: hash["description"],
-        price: hash["price"],
-        categories: hash["genreIds"],
-        appstore_path: hash["trackViewUrl"]
-      }
+    apps = []
+    arr.each do |app_id|
+      app = App.find_or_create_by(appid: app_id)
+      apps << app
     end
+
+    apps
   end
 
   def appstore_path
