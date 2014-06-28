@@ -11,7 +11,9 @@
 
 <nav>
   <div class="container">
-    <%= link_to "App List", users_path, "target" => :blank, class: 'brand orange' %>
+    <%= link_to users_path, class: 'brand orange' do %>
+      <%= image_tag "applist@2x.png" %>
+    <% end %>
 
     <% if content_for :username %>
       of <%= content_for :username %>
