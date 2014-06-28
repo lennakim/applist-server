@@ -1,1 +1,1 @@
-git pull; bundle; rake assets:precompile; touch tmp/restart.txt
+git pull; bundle; rake assets:precompile RAILS_ENV=production; touch tmp/restart.txt
