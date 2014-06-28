@@ -12,142 +12,29 @@
       </div>
 
       <ul class="users">
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li class="item clearfix">
-          <div class="avatar pull-left">
-            <%= link_to "http://weibo.com/c0ngteng" do %>
-              <%= image_tag "http://tp4.sinaimg.cn/2527307095/180/5692972097/1" %>
-          <% end %>
-          </div>
-          <div class="username pull-left">
-            <%= link_to "congteng", "#" %>
-          </div>
-          <div class="app-list pull-left">
-            <ul class='user-list clearfix'>
-              <% App.all.each do |app| %>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-                <li class="app-icon pull-left">
-                  <%= link_to "#" do %>
-                    <%= image_tag app.logo %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
+        <% @users.each do |user| %>
+          <li class="item clearfix">
+            <div class="avatar pull-left">
+              <%= link_to user do %>
+                <%= image_tag user.avatar %>
+            <% end %>
+            </div>
+            <div class="username pull-left">
+              <%= link_to user.name, user %>
+            </div>
+            <div class="app-list pull-left">
+              <ul class='user-list clearfix'>
+                <% user.top_10_apps.each do |app| %>
+                  <li class="app-icon pull-left">
+                    <%= link_to "#" do %>
+                      <%= image_tag app.logo %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </li>
+        <% end %>
       </ul>
     </div>
 
@@ -157,16 +44,7 @@
           Top Apps
         </div>
         <ul class="apps clearfix">
-          <% App.all.each do |app| %>
-            <li class='item pull-left'>
-              <%= image_tag app.logo %>
-            </li>
-            <li class='item pull-left'>
-              <%= image_tag app.logo %>
-            </li>
-            <li class='item pull-left'>
-              <%= image_tag app.logo %>
-            </li>
+          <% @top_apps.each do |app| %>
             <li class='item pull-left'>
               <%= image_tag app.logo %>
             </li>

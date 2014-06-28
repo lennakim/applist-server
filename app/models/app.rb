@@ -10,10 +10,18 @@ class App
 
   field :info_hash,   type: Hash
 
+  field :users_count, type: Integer, default: 0
+  field :collectors_count, type: Integer, default: 0
+
   before_create :fetch_info
 
   has_and_belongs_to_many :users, inverse_of: :apps
   has_and_belongs_to_many :collectors, class_name: 'User', inverse_of: :top_10_apps
+
+  before_save :check_and_save_counts
+
+  scope :top_listed, -> { desc(:collectors_count) }
+  scope :top_installed, -> { desc(:users_count) }
 
   def fetch_info
     result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{appid}" rescue nil
@@ -27,6 +35,11 @@ class App
       self.price = hash["price"]
       self.info_hash = hash
     end
+  end
+
+  def check_and_save_counts
+    self.users_count = users.length
+    self.collectors_count = collectors.length
   end
 
 end

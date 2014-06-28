@@ -21,10 +21,12 @@ class User
 
   def save_apps apps
     self.apps = apps
+    self
   end
 
   def save_top_list list
     self.top_10_apps = list
+    self
   end
 
   before_create :generate_token_and_expired_at

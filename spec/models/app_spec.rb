@@ -45,4 +45,13 @@ RSpec.describe App, :type => :model do
       app.name.should eq('微博')
     end
   end
+
+  describe "#check_and_save_counts" do
+    it "should change counter cache attr when array changed" do
+      @x.users_count.should eq(0)
+      expect{
+        @a.save_apps [@x, @y]
+      }.to change{ @x.reload.users_count }.by(1)
+    end
+  end
 end
