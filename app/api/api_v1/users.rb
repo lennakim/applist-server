@@ -55,6 +55,7 @@ class Users < Grape::API
         Rails.logger.info "~"*30 + friends.include?(Authentication.all.map(&:uid)).to_s
 
         a = Authentication.where(:uid.in => friends)
+        Rails.logger.info  "^"*30 + a.map(&:uid).to_s
 
         if a
           users = a.map(&:user)
