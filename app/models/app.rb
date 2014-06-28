@@ -27,6 +27,25 @@ class App
   scope :top_installed, -> { desc(:users_count) }
   scope :recent, -> { order_by(created_at: :desc) }
 
+
+  def self.lookup_app(app_id)
+    result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{app_id}" rescue nil
+
+    if result
+      hash = JSON.parse(result)["results"].first
+
+      hash = {
+        appid: app_id,
+        name: hash["trackName"],
+        logo: hash["artworkUrl100"],
+        description: hash["description"],
+        price: hash["price"],
+        categories: hash["genreIds"],
+        appstore_path: hash["trackViewUrl"]
+      }
+    end
+  end
+
   def appstore_path
     info_hash["trackViewUrl"]
   end
@@ -54,7 +73,6 @@ class App
     self.users_count = users.length
     self.collectors_count = collectors.length
   end
-
 
   def as_json(opt={})
     {
