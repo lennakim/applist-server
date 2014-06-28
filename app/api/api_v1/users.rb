@@ -3,6 +3,7 @@ class Users < Grape::API
   helpers WeiboHelper
 
   resources :users do
+    #####
     desc "get user info"
     params do
       use :auth
@@ -20,7 +21,7 @@ class Users < Grape::API
       end
     end
 
-    ######
+    #####
 
     desc "user's friends"
     params do
@@ -102,7 +103,7 @@ class Users < Grape::API
       end
     end
 
-    ####
+    #####
     desc "upload user apps"
     params do
       use :auth
@@ -139,6 +140,20 @@ class Users < Grape::API
       else
         wrapper(false)
       end
+    end
+
+    #####
+    desc "user up location"
+    params do
+      use :auth
+      requires :x, :y
+    end
+    put "update_location" do
+      authenticate!
+
+      current_user.update_location(params[:x], params[:y])
+
+      wrapper(true)
     end
   end
 end
