@@ -167,5 +167,11 @@
         width: 210px;
       }
     }
+    .top-apps{
+      .apps .item, .apps .item > img{
+        width: 65px;
+        height: 65px;
+      }
+    }
   }
 }
