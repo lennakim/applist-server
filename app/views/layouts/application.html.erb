@@ -15,7 +15,11 @@
       <%= image_tag "applist@2x.png" %>
     <% end %>
     <div class="link pull-right">
-      <%= link_to "Login", qrlogin_sessions_path %>
+      <% if current_user %>
+        <%= link_to "My Apps", current_user %>
+      <% else %>
+        <%= link_to "Login", root_path %>
+      <% end %>
     </div>
   </div>
 </nav>
