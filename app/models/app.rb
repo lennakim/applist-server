@@ -23,6 +23,10 @@ class App
   scope :top_installed, -> (n){ desc(:users_count).limit(n) }
   scope :recent, -> { order_by(created_at: :desc) }
 
+  def appstore_path
+    info_hash["trackViewUrl"]
+  end
+
   def fetch_info
     result = RestClient.get "http://itunes.apple.com/cn/lookup?id=#{appid}" rescue nil
 

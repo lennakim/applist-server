@@ -8,11 +8,15 @@
           <li class="app clearfix">
 
             <div class="logo pull-left">
-              <%= image_tag app.logo %>
+              <%= link_to app.appstore_path, target: "_blank" do %>
+                <%= image_tag app.logo %>
+              <% end %>
             </div>
 
             <div class="app-name pull-left">
-              <%= app.name %>
+              <%= link_to app.appstore_path, target: "_blank" do %>
+                <%= app.name %>
+              <% end %>
             </div>
 
           </li>

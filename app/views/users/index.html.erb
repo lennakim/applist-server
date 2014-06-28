@@ -19,7 +19,7 @@
               <ul class='user-list clearfix'>
                 <% user.top_10_apps.each do |app| %>
                   <li class="app-icon pull-left">
-                    <%= link_to "#" do %>
+                    <%= link_to app.appstore_path, target: "_blank" do %>
                       <%= image_tag app.logo %>
                     <% end %>
                   </li>
