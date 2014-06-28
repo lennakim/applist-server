@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :only => [:create]
+
   def create
     hash_key = params[:hash_key]
     token = params[:token]
@@ -14,7 +15,8 @@ class SessionsController < ApplicationController
 
   def desktop_login
     hash_key = params[:hash_key]
-    if LoginHistory.confirmed?(params[:hash_key])
+    if token = LoginHistory.confirmed?(params[:hash_key])
+      cookies[:token] = { value: User.where(token: token), expires: 30.days.from_now }
       render :json => {success: true, path: user_path(current_user)}
     else
       render :json => {success: false}
