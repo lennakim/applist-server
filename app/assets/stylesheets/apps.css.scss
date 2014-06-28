@@ -23,3 +23,25 @@
     }
   }
 }
+
+@media (max-width: 500px){
+  .main.app-show{
+    .app-detail{
+      margin-bottom: 10px;
+      .logo, .logo img{
+        width: 100px;
+        height: 100px;
+      }
+      .detail-info{
+        float: clear;
+        margin-left: 10px;
+
+        .app-name{
+          font-size: 1.5em;
+        }
+        .desc{
+        }
+      }
+    }
+  }
+}

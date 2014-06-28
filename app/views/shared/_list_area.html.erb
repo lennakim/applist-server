@@ -5,7 +5,9 @@
   <ul class="apps clearfix">
     <% lists.each do |app| %>
       <li class='item pull-left'>
-        <%= image_tag app.logo %>
+        <%= link_to app do %>
+          <%= image_tag app.logo %>
+        <% end %>
       </li>
     <% end %>
   </ul>
