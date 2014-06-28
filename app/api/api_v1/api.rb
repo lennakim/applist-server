@@ -1,6 +1,7 @@
 require 'grape-swagger'
 
 class API < Grape::API
+  helpers ::Helper
 
   prefix "api"
   version 'v1'
