@@ -75,7 +75,7 @@ class Users < Grape::API
       top_apps = []
 
       app_ids.each do |app_id|
-        top_apps << App.find_or_create(appid: app_id)
+        top_apps << App.find_or_create_by(appid: app_id)
       end
 
       current_user.save_top_list(top_apps)
@@ -116,7 +116,7 @@ class Users < Grape::API
       apps = []
 
       app_ids.each do |app_id|
-        apps << App.find_or_create(appid: app_id)
+        apps << App.find_or_create_by(appid: app_id)
       end
 
       current_user.save_apps(apps)
