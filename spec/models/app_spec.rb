@@ -10,23 +10,20 @@ RSpec.describe App, :type => :model do
     @y = App.create appid: 2, name: 'test2'
     @z = App.create appid: 3, name: 'test3'
   end
-  describe "#add_to_list" do
+  describe "#save_top_list" do
 
     it "should add apps to user list" do
       expect{
-        @a.add_to_list @x
-      }.to change{@a.reload.top_10_apps.size}.from(0).to(1)
-
-      expect{
-        @b.add_to_list @x, @y, @z
+        @b.save_top_list [@x, @y, @z]
       }.to change{@b.reload.top_10_apps.size}.by(3)
+      @b.top_10_apps.should be_include @x
     end
 
     it "should add users to app" do
       expect{
-        @a.add_to_list @x
-        @b.add_to_list @x
-        @c.add_to_list @x
+        @a.save_top_list [@x, @y, @z]
+        @b.save_top_list [@x, @y, @z]
+        @c.save_top_list [@x, @y, @z]
       }.to change{@x.reload.collectors.size}.by(3)
     end
   end

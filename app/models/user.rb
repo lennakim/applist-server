@@ -20,8 +20,8 @@ class User
     self.apps = apps
   end
 
-  def add_to_list *apps
-    self.top_10_apps.concat apps
+  def save_top_list list
+    self.top_10_apps = list
   end
 
 
