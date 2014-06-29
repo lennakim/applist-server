@@ -25,5 +25,18 @@ class Apps < Grape::API
       app = App.lookup_app(params[:app_ids])
       wrapper(app)
     end
+
+    #####
+    desc "user's nearby_apps"
+    params do
+      use :auth
+      optional :limit,  type: Integer, default: 10
+      optional :offset, type: Integer, default: 0
+    end
+    get "nearby_users" do
+      authenticate!
+      users = current_user.nearby_users(params[:limit], params[:offset])
+      wrapper(users)
+    end
   end
 end
