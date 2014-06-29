@@ -24,8 +24,8 @@
 
 create_marker = (user) ->
   """
-    <div class="marker" data-id="#{user.id.$oid}">
-      #{user.content}
+    <div class="marker" data-id="#{user.id}">
+      <img src="#{user.avatar}">
     </div>
   """
 
