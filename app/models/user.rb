@@ -25,7 +25,7 @@ class User
     # max = (max.to_f if max) || (1.0 / 6371).to_f
 
     if coordinate.length == 2
-      users = User.ne(id: self.id).near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
+      users = User.where(:id.ne => self.id).near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
       users.top_10_apps
     else
       App.top_listed.limit(limit).offset(offset)
