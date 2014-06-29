@@ -12,10 +12,6 @@
       position: marker_position
       content: marker_element
 
-    marker.on 'click', ->
-      question = $(@.e).find('.marker').data('id')
-      window.location.href = '/users/' + user
-
     markers.push(marker)
 
   mapObj.plugin ["AMap.MarkerClusterer"], ->
@@ -24,8 +20,10 @@
 
 create_marker = (user) ->
   """
-    <div class="marker" data-id="#{user.id}">
-      <img src="#{user.avatar}">
+    <div class="marker">
+      <a href="/users/#{user.id}">
+        <img src="#{user.avatar}">
+      </a>
     </div>
   """
 
