@@ -16,6 +16,7 @@ class User
   # LBS
   field :coordinate, type: Array, default: []
   index({coordinate: "2dsphere"})
+
   def update_location x, y
     self.update coordinate: [x, y]
   end
