@@ -25,6 +25,7 @@ class App
 
   has_and_belongs_to_many :users, inverse_of: :apps
   has_and_belongs_to_many :collectors, class_name: 'User', inverse_of: :top_10_apps
+  has_many :comments, :as => :commentable, :dependent => :destroy
 
   before_save :check_and_save_counts
 

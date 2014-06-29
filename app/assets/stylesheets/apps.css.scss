@@ -51,6 +51,10 @@
     background: white;
     border-radius: 4px;
     padding: 10px;
+    .no-comments{
+      text-align: center;
+      color: #999999;
+    }
     .comment{
       margin-top: 10px;
       .avatar, .avatar img{

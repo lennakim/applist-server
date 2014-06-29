@@ -28,88 +28,24 @@
       </div>
 
       <div class="comments">
-        <div class="comment clearfix">
-          <div class="avatar pull-left">
-            <%= link_to User.first do %>
-              <%= image_tag User.first.avatar %>
-            <% end %>
+        <% if resource.comments.count > 0 %>
+          <% resource.comments.each do |comment| %>
+            <div class="comment clearfix">
+              <div class="avatar pull-left">
+                <%= link_to comment.user do %>
+                  <%= image_tag comment.user.avatar %>
+                <% end %>
+              </div>
+              <div class="content pull-left">
+                comment.content
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="no-comments">
+            No Comments Yet
           </div>
-          <div class="content pull-left">
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-          </div>
-        </div>
-        <div class="comment clearfix">
-          <div class="avatar pull-left">
-            <%= link_to User.first do %>
-              <%= image_tag User.first.avatar %>
-            <% end %>
-          </div>
-          <div class="content pull-left">
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-          </div>
-        </div>
-        <div class="comment clearfix">
-          <div class="avatar pull-left">
-            <%= link_to User.first do %>
-              <%= image_tag User.first.avatar %>
-            <% end %>
-          </div>
-          <div class="content pull-left">
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-            asd asdf asdf asdf
-          </div>
-        </div>
-
+        <% end %>
       </div>
 
       <% if current_user %>

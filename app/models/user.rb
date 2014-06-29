@@ -31,6 +31,8 @@ class User
     end
   end
 
+  has_many :comments, :dependent => :destroy
+
   has_many :authentications
   has_and_belongs_to_many :apps, inverse_of: :users
   has_and_belongs_to_many :top_10_apps, class_name: 'App', inverse_of: :collectors
