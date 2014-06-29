@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root 'home#index'
   get "home/doc"
   resources :users
-  resources :apps
+
+  resources :apps do
+    resources :comments
+  end
+
   resources :sessions, only: [:create]
 
   delete '/logout' => "sessions#destroy"

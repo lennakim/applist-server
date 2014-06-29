@@ -37,7 +37,7 @@
                 <% end %>
               </div>
               <div class="content pull-left">
-                comment.content
+                <%= comment.content %>
               </div>
             </div>
           <% end %>
@@ -50,8 +50,11 @@
 
       <% if current_user %>
         <div class="comment-box clearfix">
-          <textarea class="form-control"></textarea>
-          <input type="button" value='Post' class='btn btn-default' />
+          <%= form_for [resource, resource.comments.build], remote: true do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.text_area :content, class: 'form-control' %>
+            <%= submit_tag 'Post', class: 'btn btn-default' %>
+          <% end %>
         </div>
       <% end %>
 
