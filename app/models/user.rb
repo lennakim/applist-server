@@ -35,7 +35,7 @@ class User
   has_many :comments, :dependent => :destroy
   def nearby_users(limit = 10, offset = 0)
     if coordinate.length == 2
-      User.near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
+      User.near_sphere(coordinate: coordinate).offset(offset).limit(limit)
     else
       []
     end
