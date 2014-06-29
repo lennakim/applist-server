@@ -90,7 +90,7 @@ class App
       appstore_path: appstore_path.to_s,
       screenshotUrls: screenshotUrls.nil? ? [] : screenshotUrls,
       trackName: trackName.to_s,
-      genres: genres.to_s,
+      genres: genres,
       fileSizeBytes: fileSizeBytes.to_s,
       userRatingCount: userRatingCount.to_s
     }
