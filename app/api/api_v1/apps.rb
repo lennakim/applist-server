@@ -33,10 +33,10 @@ class Apps < Grape::API
       optional :limit,  type: Integer, default: 10
       optional :offset, type: Integer, default: 0
     end
-    get "nearby_apps" do
+    get "nearby_users" do
       authenticate!
-      apps = current_user.nearby_apps(params[:limit], params[:offset])
-      wrapper(apps)
+      users = current_user.nearby_users(params[:limit], params[:offset])
+      wrapper(users)
     end
   end
 end

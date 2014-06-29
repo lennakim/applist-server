@@ -31,6 +31,14 @@ class User
     end
   end
 
+  def nearby_users(limit = 10, offset = 0)
+    if coordinate.length == 2
+      User.near_sphere(coordinate: [coordinate[0], coordinate[1]]).offset(offset).limit(limit)
+    else
+      []
+    end
+  end
+
   has_many :authentications
   has_and_belongs_to_many :apps, inverse_of: :users
   has_and_belongs_to_many :top_10_apps, class_name: 'App', inverse_of: :collectors
