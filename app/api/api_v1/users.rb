@@ -145,8 +145,9 @@ class Users < Grape::API
     end
     put "update_location" do
       authenticate!
-
-      current_user.update_location(params[:x], params[:y])
+      x = params[:x].to_f
+      y = params[:y].to_f
+      current_user.update_location(x, y)
 
       wrapper(true)
     end

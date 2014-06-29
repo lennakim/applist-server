@@ -15,7 +15,7 @@ class App
   field :categories,  type: Array
   field :screenshotUrls, type: Array
   field :trackName, type: String
-  field :genres, type: String
+  field :genres, type: Array
   field :fileSizeBytes, type: String
   field :userRatingCount, type: String
 
@@ -48,6 +48,14 @@ class App
     info_hash["trackViewUrl"] if info_hash
   end
 
+  def transform_genres
+    if genres.class == "String"
+
+    else
+
+    end
+  end
+
   def related_apps
     App.in(categories: self.categories).ne(appid: self.appid)
   end
@@ -64,9 +72,9 @@ class App
         self.description = hash["description"]
         self.price = hash["price"]
         self.categories = hash["genreIds"]
-        self.screenshotUrls = hash["screenshotUrls"]
+        self.screenshotUrls = hash["screenshotUrls"].to_a
         self.trackName = hash["trackName"]
-        self.genres = hash["genres"]
+        self.genres = hash["genres"].to_a
         self.fileSizeBytes = hash["fileSizeBytes"]
         self.userRatingCount = hash["userRatingCount"]
         self.info_hash = hash
