@@ -10,7 +10,6 @@
 $(document).on 'page:update', ->
   console.log 'update page...'
 
-
 $(document).on 'page:fetch', ->
   NProgress.start()
 $(document).on 'page:change', ->

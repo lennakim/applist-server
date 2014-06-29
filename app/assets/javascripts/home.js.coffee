@@ -3,10 +3,7 @@
   users = JSON.parse(users_json)
 
   markers = []
-  console.log users
   $.each users, (i, user) ->
-    console.log i
-    console.log user
 
     marker_position = new AMap.LngLat(user.coordinate[0], user.coordinate[1])
     marker_element = create_marker user
@@ -32,7 +29,7 @@ create_marker = (user) ->
     </div>
   """
 
-$ ->
+$(document).on 'page:update', ->
   if $("#swagger-ui-container").length > 0
     swaggerUi = new SwaggerUi
       url: "http://localhost:3000/api/v1/doc.json"
