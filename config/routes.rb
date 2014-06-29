@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get "home/doc"
+  get "home/about"
   get 'map' => 'home#map'
 
   resources :users
