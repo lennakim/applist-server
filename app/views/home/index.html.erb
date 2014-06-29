@@ -1,10 +1,10 @@
 <div class="outer">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-      <%= render "shared/list_area", lists: App.top_listed.limit(24), title: "Top 24" %>
+      <div class="col-md-5">
+      <%= render "shared/list_area", lists: App.top_listed.limit(30), title: "Top 30" %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="qr-area">
           <table class='qr-table'>
             <% @qr.modules.each_index do |x| -%>
