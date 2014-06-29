@@ -119,6 +119,7 @@ class User
       gender: gender,
       location: location,
       nickname: nickname,
+      coordinate: coordinate,
       avatar: avatar,
       apps: apps,
       top_apps: self.top_10_apps

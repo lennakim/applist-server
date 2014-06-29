@@ -16,4 +16,12 @@
     }
   }
 }
+#map{
+  min-height: 600px;
 
+  .marker{
+    width: 30px;
+    height: 30px;
+    background: red;
+  }
+}

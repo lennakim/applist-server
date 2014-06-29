@@ -10,6 +10,10 @@ class HomeController < ApplicationController
     @qr = RQRCode::QRCode.new(url, size: 4, level: :l)
   end
 
+  def map
+
+  end
+
   def doc
   end
 end
