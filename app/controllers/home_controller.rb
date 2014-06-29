@@ -18,6 +18,6 @@ class HomeController < ApplicationController
   end
 
   def about
-    @qr = RQRCode::QRCode.new(Settings.host, size: 4, level: :l)
+    @qr = RQRCode::QRCode.new("http://#{Settings.host}/users", size: 4, level: :l)
   end
 end
