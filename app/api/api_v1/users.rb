@@ -141,7 +141,8 @@ class Users < Grape::API
     desc "user up location"
     params do
       use :auth
-      requires :x, :y
+      requires :x, desc: '经度'
+      requires :y, desc: '纬度'
     end
     put "update_location" do
       authenticate!

@@ -49,14 +49,6 @@ class App
     info_hash["trackViewUrl"] if info_hash
   end
 
-  def transform_genres
-    if genres.class == "String"
-
-    else
-
-    end
-  end
-
   def related_apps
     App.in(categories: self.categories).ne(appid: self.appid)
   end
