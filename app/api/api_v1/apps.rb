@@ -26,6 +26,23 @@ class Apps < Grape::API
       wrapper(app)
     end
 
+    desc "upload app info"
+    params do
+      requires :udid, :scheme_url, :bundle_id
+    end
+    post "upload_appinfo" do
+      status(200)
+
+      appinfo = AppInfo.upload(params[:udid], params[:scheme_url], params[:bundle_id])
+      wrapper(appinfo)
+    end
+
+    desc "app_info list"
+    get "appinfo_list" do
+      appinfos = AppInfo.all
+      wrapper(appinfos)
+    end
+
     #####
     desc "user's nearby_apps"
     params do
